@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  dynuiuc:
+    build: ./dynuiuc
+    container_name: dynuiuc
+    restart: unless-stopped
+    ports:
+      - "1050:1050"
+    environment:
+      - TZ=Europe/Madrid
+      - USERNAME=YOUR_DYNU_USERNAME
+      - PASSWORD=YOUR_DYNU_PASS
+      - HOSTNAMES=YOUR_DOMAIN
+      - DYNU_UPDATE_URL=https://api.dynu.com/nic/update
+      - IP_SOURCES=https://api.ipify.org?format=json
+      - REFRESH_TIME=300
+      - DB_FILE=db/ip_history.db
+      - TEMPLATES_DIR=templates

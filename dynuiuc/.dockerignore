@@ -1,0 +1,1 @@
+python/*.py  # This prevents duplication during the `COPY . /app/` step

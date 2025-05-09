@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 20px;
+            background-color: #f3f4f6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #dddddd;
+            text-align: left;
+        }
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: bold; /* Make header text bold */
+            background-color: #4CAF50;
+            border-bottom: 2px solid #dddddd;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        @media (max-width: 600px) {
+            td {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>IP History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>IPv4</th>
+                <th>Http Status</th>
+                <th>Dynu Response</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dynu_row in rows %}
+            <tr>
+                <td>{{ dynu_row.date }}</td>
+                <td>{{ dynu_row.ip }}</td>
+                <td>{{ dynu_row.code }}</td>
+                <td>{{ dynu_row.msg }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
